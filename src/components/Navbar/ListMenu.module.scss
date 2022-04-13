@@ -1,0 +1,40 @@
+.navLink {
+    margin: 0;
+    width: auto;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+
+    li {
+        margin: 3px;
+
+        a {
+            width: 100%;
+            text-decoration: none;
+            // font-size: 20px;
+
+            div {
+                // min-width: 120px;
+                display: grid;
+                grid-template-columns: 25px 1fr;
+                align-items: center;
+                padding: 10px;
+                margin: 0 20px;
+                transition: .3s all ease-in-out;
+                font-size: 18px;
+
+                &:hover {
+                    color: black;
+                    opacity: .8;
+                }
+
+                // img {
+                //     width: 20px;
+                //     height: 20px;
+                // }
+            }
+
+
+        }
+    }
+}
