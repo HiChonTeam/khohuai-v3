@@ -1,0 +1,19 @@
+.Button { 
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary);
+    color: white;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+
+    &:hover { 
+        opacity: 0.95;
+    }
+    &:active { 
+        opacity: 0.9;
+    }
+}
