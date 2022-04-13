@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
         setisActivebgNavbar(false);
       }
     });
-  }, []);
+  }, [isActivebgNavbar]);
 
   return (
     <nav className={[styles.navbar, isActivebgNavbar ? styles.active : '' ].join(" ")}>
