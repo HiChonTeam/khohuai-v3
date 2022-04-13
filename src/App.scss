@@ -1,0 +1,47 @@
+:root { 
+  --primary: #9B51E0;
+  --max-width-container: 1200px;
+}
+
+* { 
+  box-sizing: border-box;
+}
+
+body, div, button { 
+  color: black;
+  font-family: 'Prompt', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container { 
+  max-width: var(--max-width-container);
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+// ----------------- scroll bar -----------------
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+// ----------------- scroll bar -----------------
