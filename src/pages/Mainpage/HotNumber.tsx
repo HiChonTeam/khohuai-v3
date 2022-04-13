@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import styles from './HotNumber.module.scss';
 
 const HotNumber = () => {
   return (
-    <div style={{height: '100vh'}}>HotNumber</div>
+    <div className={['container'].join(' ')} style={{height: '100vh'}}>HotNumber</div>
   )
 }
 
