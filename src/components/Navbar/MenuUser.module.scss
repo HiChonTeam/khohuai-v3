@@ -1,0 +1,104 @@
+.GroupMenu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.LoginButton {
+    font-weight: 500;
+    font-size: 17px;
+    background-color: var(--primary);
+    color: white;
+    margin: auto;
+    padding: 10px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: .3s all ease-in-out;
+    border: 2px solid transparent;
+
+    &:active,
+    &:hover {
+        border-radius: 7px;
+        opacity: 0.9;
+    }
+
+    &.isActivebgNavbar {
+        background-color: white;
+        color: var(--primary);
+    }
+}
+
+.User {
+
+    position: relative;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+
+    &:active { 
+        background-color: lightgray;
+    }
+
+    .currentUser {
+
+        display: grid;
+        grid-template-columns: 40px 1fr 15px;
+        grid-gap: 10px;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+
+        .avater { 
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+    }
+  
+
+    .dropdown {
+        display: none;
+        z-index: 99;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 180px;
+        height: 100px;
+        background-color: white;
+        box-shadow: 0 0 5px lightgray;
+        border-radius: 5px;
+        overflow: hidden;
+
+        &.active { 
+            display: block;
+        }
+
+        .dropdownItem { 
+            width: 100%;
+            overflow-x: hidden;
+            display: grid;
+            grid-template-columns: 30px 1fr;
+            padding: 10px 20px;
+            align-items: center;
+
+            &:hover { 
+                background-color: whitesmoke;
+                cursor: pointer;
+            }
+
+            &:active { 
+                opacity: 0.9;
+            }
+        }
+    }
+}
+.overlay { 
+    user-select: none;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    position: fixed !important;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100vw;
+    height: 100vh;
+}
