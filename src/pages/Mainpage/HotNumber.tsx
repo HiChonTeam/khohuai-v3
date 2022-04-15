@@ -14,7 +14,7 @@ const HotNumber = () => {
     <div className={['container', styles.HotNumber].join(' ')} >
       <h2>กำลังหมด</h2>
       {
-        baseSeller.data.map((item, index) => { 
+        baseSeller.data.map((item:any, index: number) => { 
           return (
             <div key={index}>
               {
