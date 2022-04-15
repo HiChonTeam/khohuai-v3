@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./Navbar.module.scss";
 import { Link } from "react-router-dom";
 import ListMenu from "./ListMenu";
@@ -6,23 +6,23 @@ import MenuUser from "./MenuUser";
 
 const Navbar: React.FC = () => {
 
-  const [isActivebgNavbar, setisActivebgNavbar] = useState(false);
+  // const [isActivebgNavbar, setisActivebgNavbar] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
-        if (!isActivebgNavbar) {
-            setisActivebgNavbar(true);
-        }
-      }
-      else { 
-        setisActivebgNavbar(false);
-      }
-    });
-  }, [isActivebgNavbar]);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => {
+  //     if (window.scrollY > 100) {
+  //       if (!isActivebgNavbar) {
+  //           setisActivebgNavbar(true);
+  //       }
+  //     }
+  //     else { 
+  //       setisActivebgNavbar(false);
+  //     }
+  //   });
+  // }, [isActivebgNavbar]);
 
   return (
-    <nav className={[styles.navbar, isActivebgNavbar ? styles.active : '' ].join(" ")}>
+    <nav className={[styles.navbar ].join(" ")}>
       <div className={[styles.navbarContainer].join(" ")}>
 
         {/* left */}
@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
 
         {/* right */}
         <div className={[styles.navbarRight].join(" ")}>
-          <MenuUser isActivebgNavbar={isActivebgNavbar} />
+          <MenuUser />
         </div>
       </div>
     </nav>

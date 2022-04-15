@@ -4,9 +4,11 @@
     width: 100vw;
     z-index: 99;
     transition: .8s all ease-in-out;
+    background-color: var(--primary);
+    color: white;
 
-    a { 
-        color: black;
+    a, svg, span { 
+        color: white;
         text-decoration: none;
     }
     
@@ -19,53 +21,57 @@
         justify-content: space-between;
     }
 
-    &.active { 
+    // &.active { 
 
-        color: white;
-        background-color: var(--primary);
+    //     color: white;
+    //     background-color: var(--primary);
 
-        h1, a, svg, li, div {
-            color: white;
-        }
-        .LoginButton { 
-            border: 2px solid white;
-        }
-    }
-}
+    //     .navbarLeft h1, 
+    //     .navbarLeft a, 
+    //     .navbarLeft svg, 
+    //     .navbarLeft div {
+    //         color: white;
+    //     }
+    //     .LoginButton { 
+    //         border: 2px solid white;
+    //     }
+    // }
 
-.navbarLeft {
+    .navbarLeft {
 
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    a {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-
-        h1 {
-            font-size: 50px;
-            margin: 2px 0;
-
-            &::after {
-                content: 'V.3';
-                font-size: 14px;
-                margin: 0 5px;
-            }
-        }
-
-        &:hover {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    
+        a {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+    
             h1 {
-                opacity: 0.9;
+                font-size: 50px;
+                margin: 2px 0;
+    
+                &::after {
+                    content: 'V.3';
+                    font-size: 14px;
+                    margin: 0 5px;
+                }
+            }
+    
+            &:hover {
+                h1 {
+                    opacity: 0.9;
+                }
             }
         }
+    
     }
-
+    
+    .navbarRight {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
 }
 
-.navbarRight {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
