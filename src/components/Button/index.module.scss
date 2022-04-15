@@ -1,19 +1,20 @@
-.Button { 
+.Button {
+    outline: none;
+    font-family: 'Prompt', sans-serif;
     border: none;
     border-radius: 5px;
-    background-color: var(--primary);
-    color: white;
-    margin: 10px 0;
-    padding: 10px;
-    width: 100%;
+    margin: 0;
+    padding: 10px 30px;
     cursor: pointer;
     font-size: 18px;
     user-select: none;
 
-    &:hover { 
-        opacity: 0.95;
+    &.Color {
+        background-color: var(--primary);
+        color: white;
     }
-    &:active { 
-        opacity: 0.9;
+
+    &.Full {
+        width: 100%;
     }
 }
