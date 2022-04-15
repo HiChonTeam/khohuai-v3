@@ -13,7 +13,7 @@ const Index: React.FC = () => {
       <div className={styles.Title}>เข้าสู่ระบบ</div>
       <Input type="text" label="อีเมล" ref={email} />
       <Input type="password" label="รหัสผ่าน" ref={password} />
-      <Button type="button">ลงชื่อเข้าใช้</Button>
+      <Button type="button" color="primary" full className={styles.btnLogin}>ลงชื่อเข้าใช้</Button>
     </div>
   );
 };
