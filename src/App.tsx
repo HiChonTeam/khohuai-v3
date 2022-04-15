@@ -2,15 +2,12 @@ import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 
-
 //loading
 import LoadingPage from "./components/Loading/LoadingPage";
 //routes
 import routes from "./routes";
 //layout
 import DefaultLayout from "./layouts/DefaultLayout";
-//pages
-const LoginPage = React.lazy(() => import("./pages/LoginPage"));
 
 const App: React.FC = () => {
   return (
@@ -18,7 +15,7 @@ const App: React.FC = () => {
       <Suspense fallback={<LoadingPage />}>
         <Routes>
           <Route element={<DefaultLayout />}>
-            {routes.map((route, key) => {
+            {routes.main.map((route, key) => {
               return (
                 <Route
                   key={key}
@@ -28,7 +25,17 @@ const App: React.FC = () => {
               );
             })}
           </Route>
-          <Route path="login" element={<LoginPage />} />
+          <Route>
+            {routes.notlogin.map((route, key) => {
+              return (
+                <Route
+                  key={key}
+                  path={route.path}
+                  element={<route.element />}
+                />
+              );
+            })}
+          </Route>
         </Routes>
       </Suspense>
     </BrowserRouter>
