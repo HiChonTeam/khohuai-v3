@@ -17,8 +17,8 @@ const Index: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const login = () => {
-    const _email = String(email.current?.value).trim();
-    const _password = String(password.current?.value).trim();
+    const _email = String(email.current?.value).trim(); 
+    const _password = String(password.current?.value).trim();  
 
     if (_email && _password) {
       const body = {
@@ -26,23 +26,42 @@ const Index: React.FC = () => {
         password: _password,
       };
 
-      dispatch(loginUser(body)); 
+      dispatch(loginUser(body));  
     }
   };
 
-  useEffect(() => {
-    console.log(authState.loggedIn);
-    if (authState.loggedIn) {
-      navigate("/");
-    }
-  }, [authState]);
+  useEffect(() => { 
+    console.log(authState.loggedIn); 
+    if (authState.loggedIn) { 
+      navigate("/"); 
+    } 
+  }, [authState]); 
 
   return (
     <div className={styles.LoginPage}>
       <div className={styles.Title}>เข้าสู่ระบบ</div>
-      <Input type="text" label="อีเมล" ref={email} />
-      <Input type="password" label="รหัสผ่าน" ref={password} />
-      <Button type="button" color="primary" full className={styles.btnLogin}>ลงชื่อเข้าใช้</Button>
+      <Input
+        type="text" 
+        label="อีเมล" 
+        defaultValue={"test@gmail.com"} 
+        ref={email} 
+      />
+      <Input
+        type="password" 
+        label="รหัสผ่าน" 
+        defaultValue={"1234"} 
+        ref={password} 
+      />
+      <Button 
+        type="button" 
+        color="primary" 
+        full={true} 
+        className={styles.btnLogin} 
+        onClick={login} 
+        isLoading={authState.loading === "pending" ? true : false} 
+      >
+        ลงชื่อเข้าใช้
+      </Button>
     </div>
   );
 };
