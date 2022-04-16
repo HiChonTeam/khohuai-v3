@@ -1,3 +1,4 @@
+
 import { FC, useEffect } from "react";
 import "./Spinner.scss";
 

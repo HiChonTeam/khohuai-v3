@@ -1,3 +1,4 @@
+
 import { ButtonHTMLAttributes, FC, useEffect } from "react";
 import styles from "./index.module.scss";
 import Ripples from "react-ripples";
@@ -32,7 +33,7 @@ const Index: FC<ButtonProps> = ({
           color === "primary" ? styles.Color : " ",
           full ? styles.Full : " ",
         ].join(" ")}
-        disabled={isLoading ? true : false}
+        disabled={isLoading ? true : false} 
         {...rest}
       >
         { children}
