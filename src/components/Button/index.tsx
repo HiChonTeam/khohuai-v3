@@ -7,38 +7,38 @@ import Spinner from "../Loading/Spinner";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   color?: string;
-  full?: boolean;
-  isLoading?: boolean;
+  full?: boolean; 
+  isLoading?: boolean; 
 }
 
 const Index: FC<ButtonProps> = ({
   children,
   className,
-  color,
-  full = false,
-  isLoading = false,
-  ...rest
+  color, 
+  full = false, 
+  isLoading = false, 
+  ...rest 
 }) => {
 
   return (
     <Ripples
-      className={[full ? styles.Full : " "].join(" ")}
-      color="#f1f1f16e"
-      during={700}
+      className={[full ? styles.Full : " "].join(" ")} 
+      color="#f1f1f16e" 
+      during={700} 
     >
-      <button
-        className={[
+      <button 
+        className={[ 
           className,
-          styles.Button,
-          color === "primary" ? styles.Color : " ",
-          full ? styles.Full : " ",
+          styles.Button, 
+          color === "primary" ? styles.Color : " ", 
+          full ? styles.Full : " ", 
         ].join(" ")}
-        disabled={isLoading ? true : false} 
-        {...rest}
+        disabled={isLoading ? true : false}  
+        {...rest} 
       >
-        { children}
-      </button>
-    </Ripples>
+        { children} 
+      </button> 
+    </Ripples> 
   );
 };
 

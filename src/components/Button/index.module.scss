@@ -14,7 +14,13 @@
         color: white;
     }
 
-    &.Full {
-        width: 100%;
+    &:disabled {
+        opacity: 0.8;
+        cursor: progress;
     }
+
+}
+
+.Full {
+    width: 100%;
 }
