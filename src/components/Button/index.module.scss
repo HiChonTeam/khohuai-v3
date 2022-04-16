@@ -13,12 +13,8 @@
         background-color: var(--primary);
         color: white;
     }
-    &:disabled {
-        opacity: 0.8;
-        cursor: progress;
-    }
-    
-}
-.Full {
+
+    &.Full {
         width: 100%;
+    }
 }

@@ -2,7 +2,6 @@
   "name": "khohuai-v3",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://khohuai-v3-api.herokuapp.com",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
@@ -16,7 +15,6 @@
     "@types/react": "^17.0.44",
     "@types/react-dom": "^17.0.15",
     "axios": "^0.26.1",
-    "js-cookie": "^3.0.1",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -51,8 +49,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/js-cookie": "^3.0.1"
   }
 }

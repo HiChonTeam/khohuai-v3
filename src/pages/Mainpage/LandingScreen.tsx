@@ -1,21 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./LandingScreen.module.scss";
 import background from "../../assets/images/main_background.jpg";
 import Button from '../../components/Button';
 import { Link } from "react-router-dom";
-import http from "../../api/http";
 
 const LandingScreen: React.FC = () => {
-
-  useEffect(() => {
-    
-    http.get('/user/me').then((res) => { 
-      console.log(res.data);
-    })
-    
-  }, [])
-  
-  
   return (
     <div className={styles.Landing}>
       <img src={background} className={styles.background} alt="background" />

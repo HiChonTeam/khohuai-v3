@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import bestseller from '../../store/slices/bestseller';
 import styles from './HotNumber.module.scss';
 
 
-const HotNumber: FC = () => {
+const HotNumber = () => {
 
   const dispatch = useAppDispatch();
   const baseSeller = useAppSelector((state) => state.bestSeller);
