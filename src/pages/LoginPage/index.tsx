@@ -25,7 +25,7 @@ const Index: React.FC = () => {
         password: _password,
       };
 
-      dispatch(loginUser(body));
+      dispatch(loginUser(body)); 
     }
   };
 
