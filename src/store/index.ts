@@ -1,10 +1,12 @@
 
 import { configureStore } from '@reduxjs/toolkit'
-// import navbarReducer from './slices/navbar';
+
+import auth from './slices/auth'; 
 import bestseller from './slices/bestseller';
 
 const reducer = {
-    // navbar: navbarReducer,
+
+    auth: auth, 
     bestSeller: bestseller
 }
 
