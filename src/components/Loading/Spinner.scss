@@ -12,12 +12,12 @@
     }
 }
 
-.ldio-uairjl9wo88 div>div {
+.ldio-uairjl9wo88 div > div {
     position: absolute;
-    width: 29.160000000000004px;
-    height: 29.160000000000004px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    background: #9b51e0;
+    background: var(--indicator-spinner-color);
     animation: ldio-uairjl9wo88 1.0204081632653061s linear infinite;
 }
 
@@ -110,8 +110,8 @@
 }
 
 .loadingio-spinner-spin-9qm07ls7maa {
-    width: 243px;
-    height: 243px;
+    width: var(--indicator-spinner-width);
+    height: var(--indicator-spinner-width);
     display: inline-block;
     overflow: hidden;
     background: none;

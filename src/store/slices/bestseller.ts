@@ -36,5 +36,5 @@ const bsetSellerSlice = createSlice({
     }
 });
 
-export const bsetSeller = (state: RootState) => state.bestSeller;
+export const bestSeller = (state: RootState) => state.bestSeller;
 export default bsetSellerSlice.reducer;
