@@ -5,8 +5,32 @@ import Button from "../../components/Button";
 
 const Index: React.FC = () => {
 
-  const email = useRef(null);
-  const password = useRef(null);
+  const email = useRef<HTMLInputElement>(null);
+  const password = useRef<HTMLInputElement>(null);
+
+  const authState = useAppSelector((state) => state.auth);
+  const dispatch = useAppDispatch();
+
+  const login = () => {
+    const _email = String(email.current?.value).trim();
+    const _password = String(password.current?.value).trim();
+
+    if (_email && _password) {
+      const body = {
+        email: _email,
+        password: _password,
+      };
+
+      dispatch(loginUser(body)); 
+    }
+  };
+
+  useEffect(() => {
+    console.log(authState.loggedIn);
+    if (authState.loggedIn) {
+      navigate("/");
+    }
+  }, [authState]);
 
   return (
     <div className={styles.LoginPage}>
