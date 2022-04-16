@@ -1,7 +1,10 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react"; 
 import styles from "./index.module.scss";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import { useAppDispatch, useAppSelector } from "../../hook"; 
+import { loginUser } from "../../store/slices/auth";
+import { useNavigate } from "react-router-dom"; 
 
 const Index: React.FC = () => {
 
