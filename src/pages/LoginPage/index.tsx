@@ -5,9 +5,10 @@ import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { useAppDispatch, useAppSelector } from "../../hook"; 
 import { loginUser } from "../../store/slices/auth";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";  
 
 const Index: React.FC = () => {
+  const navigate = useNavigate(); 
 
   const email = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
