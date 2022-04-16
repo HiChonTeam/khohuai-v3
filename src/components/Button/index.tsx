@@ -1,4 +1,5 @@
-import React, { ButtonHTMLAttributes, FC, ForwardRefRenderFunction } from "react";
+
+import { ButtonHTMLAttributes, FC, useEffect } from "react";
 import styles from "./index.module.scss";
 import Ripples from "react-ripples";
 
@@ -18,6 +19,8 @@ const Index:FC <ButtonProps> = ({ children, className, color, full = false }) =>
           (color === "primary" ? styles.Color : " "),
           (full ? styles.Full : '' )
         ].join(" ")}
+        disabled={isLoading ? true : false} 
+        {...rest}
       >
         {children}
       </button>

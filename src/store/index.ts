@@ -1,3 +1,4 @@
+
 import { configureStore } from '@reduxjs/toolkit'
 // import navbarReducer from './slices/navbar';
 import bestseller from './slices/bestseller';
