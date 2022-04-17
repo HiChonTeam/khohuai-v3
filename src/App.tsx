@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 
@@ -8,8 +8,20 @@ import LoadingPage from "./components/Loading/LoadingPage";
 import routes from "./routes";
 //layout
 import DefaultLayout from "./layouts/DefaultLayout";
+import { useAppDispatch, useAppSelector } from "./hook";
+import { checkSession } from "./store/slices/auth";
 
 const App: React.FC = () => {
+
+  const stateAuth = useAppSelector((state) => state.auth);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(checkSession())
+    console.log('auth ', stateAuth);
+  }, [stateAuth])
+  
+ 
   return (
     <BrowserRouter>
       <Suspense fallback={<LoadingPage />}>
