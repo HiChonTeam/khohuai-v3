@@ -1,0 +1,28 @@
+.CartPage { 
+    background-color: whitesmoke;
+    padding-top: 6rem;
+}
+
+.Section { 
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    grid-gap: 10px;
+}
+.SelectAll {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+
+    input[type=checkbox] {
+        margin-right: 14px;
+    }
+}
+
+.CartList { 
+    min-height: 100vh;
+}
+
+

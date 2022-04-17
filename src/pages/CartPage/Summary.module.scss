@@ -1,0 +1,29 @@
+.Summary { 
+    border-radius: 2px;
+    background-color: white;
+    width: 100%;
+    height: fit-content;
+    padding: 20px 30px 30px 30px;
+
+    .title { 
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    .sum { 
+        margin: 5px 0;
+        display: grid;
+        grid-template-columns: 1fr 100px 50px;
+
+        &> div:nth-child(2),
+        &> div:nth-child(3) { 
+            text-align: right;
+        }
+    }
+
+    .total { 
+        font-size: 18px;
+        margin: 30px 0 10px 0;
+        font-weight: 500;
+    }
+}

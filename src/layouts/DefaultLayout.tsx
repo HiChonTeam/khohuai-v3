@@ -1,17 +1,14 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Navbar from '../components/Navbar/Navbar'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar/Navbar";
 
 const DefaultLayout: React.FC = () => {
-    return (
-        <>
-             <Navbar />
-            <div>
-                <Outlet />
-            </div>
-        </>
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
+};
 
-    )
-}
-
-export default DefaultLayout
+export default DefaultLayout;

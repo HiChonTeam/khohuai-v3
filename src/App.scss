@@ -1,7 +1,7 @@
 :root { 
   --primary: #9B51E0;
   --max-width-container: 1200px;
-  --indicator-spinner-width: 250px;
+  --indicator-spinner-width: 240px;
   --indicator-spinner-color: #9B51E0;
 }
 
@@ -29,6 +29,10 @@ html {
 
 a { 
   text-decoration: none;
+}
+
+.mt-80 { 
+  padding-top: 80px;
 }
 
 // ----------------- scroll bar -----------------

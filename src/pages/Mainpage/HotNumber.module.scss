@@ -1,5 +1,17 @@
 .HotNumber { 
+
+    min-height: 600px;
+    height: 100%;
+
     h2 { 
-        font-size: 48px;
+        font-size: 42px;
+        margin-bottom: 10px;
+        font-weight: 500;
     }
+    
+}
+.LoteryList { 
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }

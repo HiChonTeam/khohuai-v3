@@ -6,7 +6,7 @@ const LoadingPage = () => {
     <div className={styles.Loading}>
       <div>
           <Spinner/>
-          <div>loading...</div>
+          <div>โปรดรอสักครู่</div>
       </div>
     </div>
   )

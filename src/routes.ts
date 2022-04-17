@@ -10,16 +10,16 @@ interface routerType {
 };
 
 //pages
-const MainPage = React.lazy(() => import('./pages/Mainpage'));
-const LoginPage = React.lazy(() => import("./pages/LoginPage"));
 
+const LoginPage = React.lazy(() => import("./pages/LoginPage"));
+const CartPage = React.lazy(() => import('./pages/CartPage'));
 
 const routes: routerType = {
-  notlogin: [
+  notLoggedIn: [
     { path: '/login', element: LoginPage },
   ],
-  main: [
-    { path: '/', element: MainPage },
+  loggedIn: [
+    { path: '/cart', element: CartPage },
   ]
 }
 

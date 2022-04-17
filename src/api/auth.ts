@@ -23,3 +23,7 @@ export const register = (body:RegisterInterface) => {
 export const getSession = () => { 
     return http.get('/auth/isLoggedIn');
 }
+
+export const logout = () => { 
+    return http.post('/auth/logout');
+}

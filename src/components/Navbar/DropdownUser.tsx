@@ -7,11 +7,22 @@ import {
   faSignOutAlt
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./DropdownUser.module.scss";
+import { useAppDispatch } from "../../hook";
+import { logoutUser } from "../../store/slices/auth";
 
 const avater =
   "https://scontent.fbkk5-8.fna.fbcdn.net/v/t1.18169-9/1916686_905168856257945_9023155128655466155_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=f9d7a1&_nc_eui2=AeHHaN_lE9HGlpr5V93leL1NIl7Xf6uud2kiXtd_q653aTpxp-Z_GFBZ5Nv01a4GJnIPNQkTM6GA4-hEw1iD8DB4&_nc_ohc=JUY8Vp0MulkAX_gabh-&_nc_oc=AQmbdf8_2THk4FhxtzVVqNoOq9v5cgxthQ3oHggaPnajGiHBXegMxKzfzz8O2ETcEMQ&_nc_ht=scontent.fbkk5-8.fna&oh=00_AT__Sb_V4xy3-ixyM_9IRaiPkzmswabv8eDYXfLJRF9Hcg&oe=627B3E9A";
 
 const DropdownUser: React.FC = () => {
+
+  const dispatch = useAppDispatch();
+
+  const signout = () => { 
+    console.log('signout');
+    setisOpenDropdown(false);
+    dispatch(logoutUser());
+  }
+
   const [isOpenDropdown, setisOpenDropdown] = useState(false);
 
   return (
@@ -39,7 +50,7 @@ const DropdownUser: React.FC = () => {
             <FontAwesomeIcon icon={faUserAlt} />
             <div>ข้อมูลส่วนตัว</div>
           </div>
-          <div className={styles.dropdownItem}>
+          <div className={styles.dropdownItem} onClick={signout}>
             <FontAwesomeIcon icon={faSignOutAlt} />
             <div>ออกจากระบบ</div>
           </div>
