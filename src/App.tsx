@@ -10,6 +10,8 @@ import routes from "./routes";
 import DefaultLayout from "./layouts/DefaultLayout";
 import { useAppDispatch, useAppSelector } from "./hook";
 import { checkSession } from "./store/slices/auth";
+import ProtectedRoute from "./utility/protectedRoute";
+const MainPage = React.lazy(() => import('./pages/Mainpage'));
 
 const App: React.FC = () => {
 
@@ -17,17 +19,16 @@ const App: React.FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(checkSession())
-    console.log('auth ', stateAuth);
-  }, [stateAuth])
-  
- 
+    dispatch(checkSession());
+    console.log("auth ", stateAuth);
+  }, []);
+
   return (
     <BrowserRouter>
       <Suspense fallback={<LoadingPage />}>
         <Routes>
-          <Route element={<DefaultLayout />}>
-            {routes.main.map((route, key) => {
+          <Route>
+            {routes.notLoggedIn.map((route, key) => {
               return (
                 <Route
                   key={key}
@@ -37,16 +38,21 @@ const App: React.FC = () => {
               );
             })}
           </Route>
-          <Route>
-            {routes.notlogin.map((route, key) => {
-              return (
-                <Route
-                  key={key}
-                  path={route.path}
-                  element={<route.element />}
-                />
-              );
-            })}
+          <Route element={<DefaultLayout />}>
+            
+            <Route path="/" element={<MainPage/> }/>
+
+            <Route element={<ProtectedRoute />}>
+              {routes.loggedIn.map((route, key) => {
+                return (
+                  <Route
+                    key={key}
+                    path={route.path}
+                    element={<route.element />}
+                  />
+                );
+              })}
+            </Route>
           </Route>
         </Routes>
       </Suspense>

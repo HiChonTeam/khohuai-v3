@@ -1,38 +1,49 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '..';
+import { getAllLottery } from '../../api/lottery';
+
+interface LotteyItemInterface {
+    number: string,
+    qty: number,
+    rating: number,
+    status: string;
+    img: string;
+}
+
+interface BestSeller {
+    loading: 'idle' | 'pending';
+    error: any;
+    all_items: LotteyItemInterface[];
+}
+
+const initialState: BestSeller = {
+    loading: 'idle',
+    error: '',
+    all_items: [],
+}
+
+export const allLottery = createAsyncThunk(
+    'lottery/all',
+    async () => {
+        const { data } = await getAllLottery();
+        return data;
+    }
+)
+
 const bsetSellerSlice = createSlice({
     name: 'bestSeller',
-    initialState: { 
-        data: [
-            {
-                id:'00',
-                number: '123456',
-                qty: 10
-            },
-            {
-                id:'00',
-                number: '876356',
-                qty: 5
-            },
-            {
-                id:'00',
-                number: '176826',
-                qty: 8
-            },
-            {
-                id:'00',
-                number: '993456',
-                qty: 9
-            },
-            {
-                id:'00',
-                number: '244456',
-                qty: 1
-            }
-        ]
-    },
+    initialState,
     reducers: { 
 
+    },
+    extraReducers: (builder) => { 
+        builder.addCase(allLottery.pending, (state) => { 
+            state.loading = 'pending';
+        });
+        builder.addCase(allLottery.fulfilled, (state, { payload }) => {
+            state.loading = 'idle'; 
+            state.all_items = payload;
+        })
     }
 });
 

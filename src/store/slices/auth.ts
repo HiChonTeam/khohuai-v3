@@ -1,13 +1,13 @@
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '..';
-import { getSession, login, register } from '../../api/auth';
+import { getSession, login, logout, register } from '../../api/auth';
 
 
 interface Auth {
     loading: 'idle' | 'pending';
     error: any;
-    loggedIn: boolean;
+    loggedIn: boolean | undefined;
     role: string;
 }
 
@@ -38,6 +38,14 @@ export const registerUser = createAsyncThunk<any, UserRegister>(
     }
 )
 
+export const logoutUser = createAsyncThunk(
+    'auth/logout',
+    async () => {
+        const { data } = await logout();
+        return data;
+    }
+)
+
 export const checkSession = createAsyncThunk(
     'auth/session',
     async () => {
@@ -50,7 +58,7 @@ export const checkSession = createAsyncThunk(
 const initialState: Auth = {
     loading: 'idle',
     error: '',
-    loggedIn: false,
+    loggedIn: undefined,
     role: ''
 }
 
@@ -65,13 +73,24 @@ const authSlice = createSlice({
         builder.addCase(loginUser.fulfilled, (state, { payload }) => {
             state.loading = 'idle';
             state.loggedIn = payload.loggedIn;
+            state.role = payload.role;
         });
-        builder.addCase(loginUser.rejected, (state, { payload }) => {
+        builder.addCase(loginUser.rejected, (state) => {
             state.loading = 'idle'
         });
         builder.addCase(checkSession.fulfilled, (state, { payload }) => { 
-            state.loggedIn = payload.isLoggedIn;
-            state.role = payload.role;
+            if (payload) {
+                state.loggedIn = payload.loggedIn;
+                state.role = payload.role;
+            }
+            else { 
+                state.loggedIn = false
+                state.role = '';
+            }
+        });
+        builder.addCase(logoutUser.fulfilled, (state) => { 
+            state.loggedIn = false;
+            state.role = '';
         })
     }
 })
