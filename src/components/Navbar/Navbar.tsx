@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Navbar.module.scss";
 import { Link } from "react-router-dom";
 import ListMenu from "./ListMenu";
 import MenuUser from "./MenuUser";
+import { useAppDispatch } from "../../hook";
+import { getMyCart } from "../../store/slices/cart";
 
 const Navbar: React.FC = () => {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(getMyCart());
+  }, [])
+  
 
   // const [isActivebgNavbar, setisActivebgNavbar] = useState(false);
 

@@ -109,17 +109,15 @@ const cartSlice = createSlice({
             const indexOfItem: number = state.all_items.findIndex((item) => item.number === number);
 
             if (indexOfItem > 0) {
-                state.all_items[indexOfItem].qty = state.all_items[indexOfItem].qty + 1;
-
-                const { qty, total } = calculate(state.all_items, 80);
-                state.totalQty = qty;
-                state.totalPrice = total;
+                state.all_items[indexOfItem].qty = state.all_items[indexOfItem].qty + 1;               
             }
             else {
                 // add new item
                 state.all_items.push({ number, qty: 1, img: '', rating: 0, status: '' })
             }
-
+            const { qty, total } = calculate(state.all_items, 80);
+            state.totalQty = qty;
+            state.totalPrice = total;
         });
         builder.addCase(decreaseFromCart.fulfilled, (state, { meta }) => {
 
@@ -127,10 +125,10 @@ const cartSlice = createSlice({
             const indexOfItem = state.all_items.findIndex((item) => item.number === number);
             if (indexOfItem > 0) {
                 state.all_items[indexOfItem].qty = state.all_items[indexOfItem].qty - 1;
-                const { qty, total } = calculate(state.all_items, 80);
-                state.totalQty = qty;
-                state.totalPrice = total;
             }
+            const { qty, total } = calculate(state.all_items, 80);
+            state.totalQty = qty;
+            state.totalPrice = total;
         });
         builder.addCase(removeFromCart.fulfilled, (state, { meta }) => {
             const number = meta.arg;

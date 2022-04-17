@@ -8,11 +8,10 @@ import { getMyCart } from "../../store/slices/cart";
 
 const CartBadge: React.FC = () => {
 
-  const dispatch = useAppDispatch();
   const cartState = useAppSelector((state) => state.cart);
 
   useEffect(() => {
-    dispatch(getMyCart());
+    
   }, [cartState]);
 
   return (
@@ -20,7 +19,7 @@ const CartBadge: React.FC = () => {
       <Link to="/cart">
         <FontAwesomeIcon icon={faCartShopping} size="2x" />
         {
-          cartState.loading !== 'pending' ? 
+          cartState.loading !== 'pending' && cartState.totalQty > 0 ? 
            <div className={styles.Badge}>{cartState.totalQty}</div>
           :  
           null
