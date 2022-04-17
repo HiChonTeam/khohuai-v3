@@ -31,7 +31,7 @@ const Index: React.FC = () => {
   };
 
   useEffect(() => { 
-    console.log(authState.loggedIn); 
+
     if (authState.loggedIn) { 
       navigate("/"); 
     } 

@@ -8,16 +8,12 @@ import { getMyCart } from "../../store/slices/cart";
 
 const CartBadge: React.FC = () => {
 
-  const price = 80;
-
   const dispatch = useAppDispatch();
   const cartState = useAppSelector((state) => state.cart);
 
   useEffect(() => {
-
     dispatch(getMyCart());
-
-  }, []);
+  }, [cartState]);
 
   return (
     <div className={styles.CartBadge}>

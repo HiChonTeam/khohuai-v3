@@ -18,7 +18,7 @@ const DropdownUser: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const signout = () => { 
-    console.log('signout');
+
     setisOpenDropdown(false);
     dispatch(logoutUser());
   }

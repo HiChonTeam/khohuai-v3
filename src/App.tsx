@@ -20,7 +20,6 @@ const App: React.FC = () => {
 
   useEffect(() => {
     dispatch(checkSession());
-    console.log("auth ", stateAuth);
   }, []);
 
   return (
