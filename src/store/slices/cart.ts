@@ -71,8 +71,6 @@ const initialState: Cart = {
 
 const calculate = (data: any, price: number) => {
 
-    console.log(data);
-
     const sumvalue = data.reduce(
         (sum: LotteyItemInterface, current: LotteyItemInterface) => {
             return {
@@ -99,8 +97,6 @@ const cartSlice = createSlice({
         builder.addCase(getMyCart.fulfilled, (state, { payload }) => {
 
             const { qty, total } = calculate(payload, 80);
-
-            console.log(qty, total);
 
             state.totalQty = qty;
             state.totalPrice = total;
