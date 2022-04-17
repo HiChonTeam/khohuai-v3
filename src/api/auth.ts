@@ -19,3 +19,7 @@ export const login = (body:LoginInterface) => {
 export const register = (body:RegisterInterface) => { 
     return http.post('/auth/register', body)
 }
+
+export const getSession = () => { 
+    return http.get('/auth/isLoggedIn');
+}

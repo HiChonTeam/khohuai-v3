@@ -5,6 +5,8 @@ import Button from '../../components/Button';
 import { Link } from "react-router-dom";
 
 const LandingScreen: React.FC = () => {
+
+  
   return (
     <div className={styles.Landing}>
       <img src={background} className={styles.background} alt="background" />
