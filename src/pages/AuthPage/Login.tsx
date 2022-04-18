@@ -1,13 +1,13 @@
 
-import React, { useEffect, useRef } from "react"; 
-import styles from "./index.module.scss";
+import React, { FormEvent, FormEventHandler, useEffect, useRef } from "react"; 
+import styles from "./Login.module.scss";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { useAppDispatch, useAppSelector } from "../../hook"; 
 import { loginUser } from "../../store/slices/auth";
-import { useNavigate } from "react-router-dom";  
+import { Link, useNavigate } from "react-router-dom";  
 
-const Index: React.FC = () => {
+const Login: React.FC = () => {
   const navigate = useNavigate(); 
 
   const email = useRef<HTMLInputElement>(null);
@@ -16,7 +16,10 @@ const Index: React.FC = () => {
   const authState = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
 
-  const login = () => {
+  const login = (event:FormEvent) => {
+
+    event.preventDefault()
+
     const _email = String(email.current?.value).trim(); 
     const _password = String(password.current?.value).trim();  
 
@@ -40,30 +43,35 @@ const Index: React.FC = () => {
   return (
     <div className={styles.LoginPage}>
       <div className={styles.Title}>เข้าสู่ระบบ</div>
+      <form onSubmit={login}>
       <Input
+      spellCheck="false"
         type="text" 
         label="อีเมล" 
-        defaultValue={"test@gmail.com"} 
         ref={email} 
       />
       <Input
+        spellCheck="false"
         type="password" 
         label="รหัสผ่าน" 
-        defaultValue={"1234"} 
         ref={password} 
       />
       <Button 
-        type="button" 
+        type="submit" 
         color="primary" 
         full={true} 
         className={styles.btnLogin} 
-        onClick={login} 
         isLoading={authState.loading === "pending" ? true : false} 
       >
         ลงชื่อเข้าใช้
       </Button>
+      </form>
+      <div className={styles.CreateAccount}>
+        หากคุณยังไม่มีบัญชีผู้ใช้งาน  
+        <Link to='/register'>สร้างบัญชี</Link>
+        </div>
     </div>
   );
 };
 
-export default Index;
+export default Login;
