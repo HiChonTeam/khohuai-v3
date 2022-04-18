@@ -9,6 +9,9 @@ interface Auth {
     error: any;
     loggedIn: boolean | undefined;
     role: string;
+    user: {
+        displayName: string;
+    } 
 }
 
 interface UserLogin {
@@ -31,7 +34,7 @@ export const loginUser = createAsyncThunk<any, UserLogin>(
 )
 
 export const registerUser = createAsyncThunk<any, UserRegister>(
-    'auth/login',
+    'auth/register',
     async (body) => {
         const { data } = await register(body);
         return data;
@@ -59,7 +62,10 @@ const initialState: Auth = {
     loading: 'idle',
     error: '',
     loggedIn: undefined,
-    role: ''
+    role: '',
+    user: {
+        displayName: ''
+    }
 }
 
 const authSlice = createSlice({
@@ -74,6 +80,16 @@ const authSlice = createSlice({
             state.loading = 'idle';
             state.loggedIn = payload.loggedIn;
             state.role = payload.role;
+            state.user = payload.user;
+        });
+        builder.addCase(registerUser.pending, (state) => {
+            state.loading = 'pending'
+        });
+        builder.addCase(registerUser.fulfilled, (state, { payload }) => {
+            state.loading = 'idle';
+            state.loggedIn = payload.loggedIn;
+            state.role = payload.role;
+            state.user = payload.user;
         });
         builder.addCase(loginUser.rejected, (state) => {
             state.loading = 'idle'
@@ -91,7 +107,7 @@ const authSlice = createSlice({
         builder.addCase(logoutUser.fulfilled, (state) => { 
             state.loggedIn = false;
             state.role = '';
-        })
+        });
     }
 })
 
