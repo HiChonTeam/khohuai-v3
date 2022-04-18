@@ -5,18 +5,20 @@ interface routeType {
   element: any;
 }
 
-interface routerType {
+interface RouterType {
   [key: string]: routeType[]
 };
 
 //pages
+const LoginPage = React.lazy(() => import("./pages/AuthPage/Login"));
+const RegisterPage = React.lazy(() => import('./pages/AuthPage/Register'));
 
-const LoginPage = React.lazy(() => import("./pages/LoginPage"));
 const CartPage = React.lazy(() => import('./pages/CartPage'));
 
-const routes: routerType = {
+const routes: RouterType = {
   notLoggedIn: [
     { path: '/login', element: LoginPage },
+    { path: '/register', element: RegisterPage }
   ],
   loggedIn: [
     { path: '/cart', element: CartPage },
