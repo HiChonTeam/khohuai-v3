@@ -7,7 +7,7 @@ import {
   faSignOutAlt
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./DropdownUser.module.scss";
-import { useAppDispatch } from "../../hook";
+import { useAppDispatch, useAppSelector } from "../../hook";
 import { logoutUser } from "../../store/slices/auth";
 
 const avater =
@@ -15,10 +15,10 @@ const avater =
 
 const DropdownUser: React.FC = () => {
 
+  const authState = useAppSelector(state => state.auth);
   const dispatch = useAppDispatch();
 
   const signout = () => { 
-
     setisOpenDropdown(false);
     dispatch(logoutUser());
   }
@@ -33,7 +33,7 @@ const DropdownUser: React.FC = () => {
           onClick={() => setisOpenDropdown(true)}
         >
           <img className={styles.avater} src={avater} alt="" />
-          <div>BossZa</div>
+          <div>{authState.user.displayName}</div>
           {isOpenDropdown ? (
             <FontAwesomeIcon icon={faAngleUp} />
           ) : (
